@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Exercice2.RomanCount
@@ -9,15 +10,21 @@ namespace Exercice2.RomanCount
 		{
 			var result = "";
 
-			var rules = new []
-			{
-				new ConvertionRule(1,4,"I"),
-				new ConvertionRule(4,5,"IV"),
-				new ConvertionRule(5,9,"V"),
-				new ConvertionRule(9,10,"IX"),
-				new ConvertionRule(10,50,"X"),
-				new ConvertionRule(50,100,"L"),
-			};
+			var rulesbuilder = new RulesCollecitonBuilder();
+			var rules = rulesbuilder.Convert(1).With("I")
+				.Convert(4).With("IV")
+				.Convert(5).With("V")
+				.Convert(9).With("IX")
+				.Convert(10).With("X")
+				.Convert(40).With("XL")
+				.Convert(50).With("L")
+				.Convert(90).With("XC")
+				.Convert(100).With("C")
+				.Convert(400).With("CD")
+				.Convert(500).With("D")
+				.Convert(900).With("CM")
+				.Convert(1000).With("M")
+				.Build();				
 
 			while (arabic > 0)
 			{				
@@ -28,6 +35,68 @@ namespace Exercice2.RomanCount
 			}
 
 			return result;
+		}
+	}
+
+	public class RulesCollecitonBuilder
+	{
+		private SortedList<int, Convertion> _conversions;
+
+		public RulesCollecitonBuilder()
+		{
+			_conversions = new SortedList<int, Convertion>();
+		}
+		public Convertion Convert(int i)
+		{
+			var convertion = new Convertion(i, this);
+
+			_conversions.Add(convertion.Arabic, convertion);
+
+			return convertion;
+		}
+
+		public IEnumerable<ConvertionRule> Build()
+		{
+			var result = new List<ConvertionRule>();
+			Convertion last = null;
+			foreach (var conversion in _conversions.Values)
+			{
+				if (last != null)
+				{
+					result.Add(new ConvertionRule(
+						last.Arabic,
+						conversion.Arabic,
+						last.Roman));					
+				}
+				last = conversion;
+			}
+			if (last != null)
+			{
+				result.Add(new ConvertionRule(
+					last.Arabic,
+					1000000,
+					last.Roman));
+			}
+			return result;
+		}
+	}
+
+	public class Convertion
+	{
+		public int Arabic { get; private set; }
+		private readonly RulesCollecitonBuilder _builder;
+		public string Roman { get; private set; }
+
+		public Convertion(int i, RulesCollecitonBuilder builder)
+		{
+			Arabic = i;
+			_builder = builder;
+		}
+
+		public RulesCollecitonBuilder With(string with)
+		{
+			Roman = with;
+			return _builder;
 		}
 	}
 
