@@ -8,7 +8,7 @@ namespace Exercice1
 	    [Fact]
 	    public void naming_should_clarify_behaviours()
 	    {
-		    var myName = "";
+		    var myName = "Mathieu";
 		    Check.That(myName).Equals("Mathieu");
 	    }
     }
