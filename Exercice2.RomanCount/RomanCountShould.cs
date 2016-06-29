@@ -25,6 +25,12 @@ namespace Exercice2.RomanCount
 		[InlineData(50, "L")]
 		[InlineData(60, "LX")]
 		[InlineData(88, "LXXXVIII")]
+		[InlineData(100, "C")]
+		[InlineData(500, "D")]
+		[InlineData(1000, "M")]
+		[InlineData(2499,"MMCDXCIX")]
+		[InlineData(3949 ,"MMMCMXLIX")]
+		[InlineData(3999, "MMMCMXCIX")]
 		public void convert_arabic_to_roman(int arabic, string roman)
 		{		
 			Check.That(_romanCount.Convert(arabic)).Equals(roman);

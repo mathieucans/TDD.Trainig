@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Exercice2.RomanCount
 {
@@ -8,7 +9,6 @@ namespace Exercice2.RomanCount
 		{
 			var result = "";
 
-			RomanConverter converter = null;
 			var converters = new[]
 			{
 				new RomanConverter(1, "I"),
@@ -16,40 +16,21 @@ namespace Exercice2.RomanCount
 				new RomanConverter(5, "V"),
 				new RomanConverter(9, "IX"),
 				new RomanConverter(10, "X"),
+				new RomanConverter(40, "XL"),
 				new RomanConverter(50, "L"),
+				new RomanConverter(90, "XC"),
+				new RomanConverter(100, "C"),
+				new RomanConverter(400, "CD"),
+				new RomanConverter(500, "D"),
+				new RomanConverter(900, "CM"),
+				new RomanConverter(1000, "M"),
 			};
 
 			if (arabic > 0)
 			{
+				var converter = converters.Last(
+					c => arabic >= c.Arabic);
 
-				if (arabic >= 1)				
-				{
-					converter = converters[0];
-				}
-				if (arabic >= 4)
-				{
-					converter = converters[1];
-				}
-				if (arabic >= 5)
-				{
-					converter = converters[2];
-				}
-				if (arabic >= 9)
-				{
-					converter = converters[3];
-				}
-				if (arabic >= 10)
-				{
-					converter = converters[4];
-				}
-				if (arabic >= 50)
-				{
-					converter = converters[5];
-				}
-			}
-
-			if (converter != null)
-			{
 				result = String.Concat(
 					result,
 					converter.Roman,
