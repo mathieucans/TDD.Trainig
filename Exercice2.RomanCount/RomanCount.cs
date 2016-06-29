@@ -21,23 +21,24 @@ namespace Exercice2.RomanCount
 
 			if (arabic > 0)
 			{
-				if (arabic < 4 && arabic >= 1)				
+
+				if (arabic >= 1)				
 				{
 					converter = converters[0];
 				}
-				if (arabic < 5 && arabic >= 4)
+				if (arabic >= 4)
 				{
 					converter = converters[1];
 				}
-				if (arabic < 9 && arabic >= 5)
+				if (arabic >= 5)
 				{
 					converter = converters[2];
 				}
-				if (arabic < 10 && arabic >= 9)
+				if (arabic >= 9)
 				{
 					converter = converters[3];
 				}
-				if (arabic < 40 && arabic >= 10)
+				if (arabic >= 10)
 				{
 					converter = converters[4];
 				}
