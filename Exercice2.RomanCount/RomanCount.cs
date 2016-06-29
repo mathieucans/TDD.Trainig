@@ -8,6 +8,8 @@ namespace Exercice2.RomanCount
 		{
 			var result = "";		
 
+			var converter = new RomanConverter(1,"I");
+
 			while (arabic > 0)
 			{
 				if (arabic >= 50)
@@ -20,7 +22,12 @@ namespace Exercice2.RomanCount
 					result += "X";
 					arabic -= 10;
 				}
-				if (arabic < 10 && arabic >= 5)
+				if (arabic < 10 && arabic >= 9)
+				{
+					result += "IX";
+					arabic -= 9;
+				}
+				if (arabic < 9 && arabic >= 5)
 				{
 					result += "V";
 					arabic -= 5;
@@ -30,7 +37,7 @@ namespace Exercice2.RomanCount
 					result += "IV";
 					arabic -= 4;
 				}
-				if (arabic < 4 && arabic >= 1)
+				if (arabic < 4 && arabic >= 1)				
 				{
 					result += "I";
 					arabic--;
@@ -38,6 +45,18 @@ namespace Exercice2.RomanCount
 			}
 
 			return result;
+		}
+	}
+
+	public class RomanConverter
+	{
+		public int Arabic { get; set; }
+		public string Roman { get; set; }
+
+		public RomanConverter(int arabic, string roman)
+		{
+			Arabic = arabic;
+			Roman = roman;
 		}
 	}
 }
