@@ -28,14 +28,15 @@ namespace Exercice2.RomanCount
 				{
 					result += "V" + Convert(arabic - 5);
 				}
+				if (arabic < 5 && arabic >= 4)
+				{
+					result += "IV" + Convert(arabic - 4);
+				}
 				if (arabic <= 3)				
 				{
 					result += "I" + Convert(arabic - 1);
 				}
-				if (arabic <= 4)
-				{
-					result += "IV" + Convert(arabic - 4);
-				}
+				
 			}
 
 			return result;
