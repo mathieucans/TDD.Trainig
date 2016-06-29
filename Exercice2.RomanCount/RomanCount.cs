@@ -10,37 +10,31 @@ namespace Exercice2.RomanCount
 
 			var converter = new RomanConverter(1,"I");
 
-			while (arabic > 0)
+			if (arabic > 0)
 			{
 				if (arabic >= 50)
 				{
-					result += "L";
-					arabic -= 50;
+					result += "L" + Convert(arabic - 50);
 				}
 				if (arabic < 40 && arabic >= 10)
 				{
-					result += "X";
-					arabic -= 10;
+					result += "X" + Convert(arabic - 10);
 				}
 				if (arabic < 10 && arabic >= 9)
 				{
-					result += "IX";
-					arabic -= 9;
+					result += "IX" + Convert(arabic - 9);
 				}
 				if (arabic < 9 && arabic >= 5)
 				{
-					result += "V";
-					arabic -= 5;
+					result += "V" + Convert(arabic - 5);
 				}
-				if (arabic < 5 && arabic >= 4 )
+				if (arabic <= 3)				
 				{
-					result += "IV";
-					arabic -= 4;
+					result += "I" + Convert(arabic - 1);
 				}
-				if (arabic < 4 && arabic >= 1)				
+				if (arabic <= 4)
 				{
-					result += "I";
-					arabic--;
+					result += "IV" + Convert(arabic - 4);
 				}
 			}
 
