@@ -2,6 +2,6 @@
 {
 	public interface IPrinterDriver
 	{
-		void PrintLine(string line);
+		void PrintLine(string line, params object[] args);
 	}
 }

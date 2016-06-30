@@ -15,6 +15,13 @@ namespace Exercice3.BankAccountKata
 		public void Print(Statement statement)
 		{
 			_printerDriver.PrintLine("DATE|AMOUNT|BALANCE");
+			foreach (var statementLine in statement.Lines)
+			{
+				_printerDriver.PrintLine("{0:dd/MM/yyyy}|{1:.00}|{2:.00}", 
+					statementLine.Date,					
+					statementLine.Amount,
+					statementLine.Balance);
+			}
 		}
 	}
 }

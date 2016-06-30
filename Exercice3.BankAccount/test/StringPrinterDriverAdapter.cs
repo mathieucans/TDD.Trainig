@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.Globalization;
+using System.Text;
 using Exercice3.BankAccountKata;
 
 namespace Exercice3.BankAccount.test
@@ -17,9 +19,9 @@ namespace Exercice3.BankAccount.test
 			_builder = new StringBuilder();
 		}
 
-		public void PrintLine(string line)
+		public void PrintLine(string line, params object[] args)
 		{
-			_builder.AppendLine(line);
+			_builder.AppendLine(String.Format(new CultureInfo("en-us"), line, args));
 		}
 	}
 }

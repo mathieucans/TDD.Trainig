@@ -42,7 +42,7 @@ namespace Exercice3.BankAccount.test
 				new StringBuilder()
 					.AppendLine(HEADER_LINE)
 					.AppendLine("30/06/2015|-10.00|500.00")
-					.AppendLine("30/06/2015|1000.00|5000.00").ToString());
+					.AppendLine("20/06/2015|1000.00|5000.00").ToString());
 		}
 	}
 }
