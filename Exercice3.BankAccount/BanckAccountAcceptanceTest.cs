@@ -13,19 +13,25 @@ namespace Exercice3.BankAccountKata
 
     public class BanckAccountAcceptanceTest
     {
+	    private StringPrinterDriverAdapter _stringPrinterDriverAdapter;
+
 	    [Fact]
 	    public void PrintStatementAccepatnce()
 	    {
 			string output = String.Empty;
 
 			var service = Create();
+
 			service.Deposit(1000);
+
 			service.Withdraw(100);
+
 			service.Deposit(500);
+
 			service.PrintStatement();
 
-		    Check.That(output).Equals(
-			    new StringBuilder()
+			Check.That(_stringPrinterDriverAdapter.BuildPrintedLines())
+				.Equals(new StringBuilder()
 				    .AppendLine("DATE|AMOUNT|BALANCE")
 				    .AppendLine("10/04/2015|500,00|1400,00")
 				    .AppendLine("02/04/2015|-100,00|900,00")
@@ -34,7 +40,10 @@ namespace Exercice3.BankAccountKata
 
 	    private BankAccount.main.BankAccount Create()
 	    {
-			return new BankAccount.main.BankAccount(new OperationRepository(A.Fake<ITimeProvider>()), new PrintService(new StringPrinterDriverAdapter()));
+		    _stringPrinterDriverAdapter = new StringPrinterDriverAdapter();
+		    return new BankAccount.main.BankAccount(
+				new OperationRepository(A.Fake<ITimeProvider>()),
+				new PrintService(_stringPrinterDriverAdapter));
 	    }
     }
 }
