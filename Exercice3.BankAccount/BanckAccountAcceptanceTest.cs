@@ -14,6 +14,7 @@ namespace Exercice3.BankAccountKata
     public class BanckAccountAcceptanceTest
     {
 	    private StringPrinterDriverAdapter _stringPrinterDriverAdapter;
+	    private ITimeProvider _timeProvider;
 
 	    [Fact]
 	    public void PrintStatementAccepatnce()
@@ -22,11 +23,14 @@ namespace Exercice3.BankAccountKata
 
 			var service = Create();
 
-			service.Deposit(1000);
+		    A.CallTo(() => _timeProvider.Now).Returns(DateTime.Parse("01/04/2015 10:00"));
+		    service.Deposit(1000);
 
-			service.Withdraw(100);
+		    A.CallTo(() => _timeProvider.Now).Returns(DateTime.Parse("02/04/2015 10:00"));
+		    service.Withdraw(100);
 
-			service.Deposit(500);
+		    A.CallTo(() => _timeProvider.Now).Returns(DateTime.Parse("10/04/2015 10:00"));
+		    service.Deposit(500);
 
 			service.PrintStatement();
 
@@ -41,8 +45,9 @@ namespace Exercice3.BankAccountKata
 	    private BankAccount.main.BankAccount Create()
 	    {
 		    _stringPrinterDriverAdapter = new StringPrinterDriverAdapter();
+		    _timeProvider = A.Fake<ITimeProvider>();
 		    return new BankAccount.main.BankAccount(
-				new OperationRepository(A.Fake<ITimeProvider>()),
+				new OperationRepository(_timeProvider),
 				new PrintService(_stringPrinterDriverAdapter));
 	    }
     }

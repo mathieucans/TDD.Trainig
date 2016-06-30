@@ -39,7 +39,7 @@ namespace Exercice3.BankAccount.test
 		[Fact]
 		public void build_a_statment_with_an_increment_balance_for_each_deposit_operation()
 		{
-			var date1 = StoreAt(new DepositOperation(100), "30/06/2016 15:56");
+			var date1 = StoreAt(new DepositOperation(100), "29/06/2016 15:56");
 			var date2 = StoreAt(new DepositOperation(100), "30/06/2016 15:56");
 
 			var statement = _operationRepository.BuildStatement();
