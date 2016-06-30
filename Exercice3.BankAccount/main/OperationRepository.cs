@@ -23,13 +23,15 @@ namespace Exercice3.BankAccount.main
 
 		public Statement BuildStatement()
 		{
+			var balance = 0;
 			var buildStatement = new Statement();
 			foreach (var operation in _operationList)
 			{
+				balance = balance + operation.Amount;
 				buildStatement.AddLine(
 					_timeProvider.Now,
 					operation.Amount,
-					100);
+					balance);
 			}
 			return buildStatement;
 		}

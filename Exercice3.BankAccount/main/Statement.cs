@@ -22,18 +22,4 @@ namespace Exercice3.BankAccount.main
 			_lines.Add(new StatementLine(date, amount, balance));
 		}
 	}
-
-	public class StatementLine
-	{
-		public DateTime Date { get; private set; }
-		public double Amount { get; private set; }
-		public int Balance { get; private set; }
-
-		public StatementLine(DateTime date, double amount, int balance)
-		{
-			Date = date;
-			Amount = amount;
-			Balance = balance;
-		}
-	}
 }
