@@ -1,4 +1,6 @@
-namespace Exercice3.BankAccountKata
+using Exercice3.BankAccountKata;
+
+namespace Exercice3.BankAccount.main
 {
 	public interface IOperationRepository
 	{

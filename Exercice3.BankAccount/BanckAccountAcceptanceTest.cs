@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Exercice3.BankAccount.main;
 using NFluent;
 using Xunit;
 
 namespace Exercice3.BankAccountKata
 {
 	
+
     public class BanckAccountAcceptanceTest
     {
 	    [Fact]
@@ -28,9 +30,9 @@ namespace Exercice3.BankAccountKata
 				    .AppendLine("01/04/2015|1000,00|1000,00").ToString());
 	    }
 
-	    private BankAccount Create()
+	    private BankAccount.main.BankAccount Create()
 	    {
-			return new BankAccount(new OperationRepository(), new PrintService());
+			return new BankAccount.main.BankAccount(new OperationRepository(), new PrintService());
 	    }
     }
 }

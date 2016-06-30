@@ -59,17 +59,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BanckAccountAcceptanceTest.cs" />
-    <Compile Include="BankAccount.cs" />
-    <Compile Include="BankAccountShould.cs" />
-    <Compile Include="DepositOperation.cs" />
-    <Compile Include="IOperationRepository.cs" />
-    <Compile Include="IPrintService.cs" />
-    <Compile Include="Operation.cs" />
-    <Compile Include="OperationRepository.cs" />
-    <Compile Include="PrintService.cs" />
+    <Compile Include="main\BankAccount.cs" />
+    <Compile Include="main\IPrinterDriver.cs" />
+    <Compile Include="main\PrintServiceShould.cs" />
+    <Compile Include="test\BankAccountShould.cs" />
+    <Compile Include="main\DepositOperation.cs" />
+    <Compile Include="main\IOperationRepository.cs" />
+    <Compile Include="main\IPrintService.cs" />
+    <Compile Include="main\Operation.cs" />
+    <Compile Include="main\OperationRepository.cs" />
+    <Compile Include="main\PrintService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Statement.cs" />
-    <Compile Include="WithdrawOperation.cs" />
+    <Compile Include="main\Statement.cs" />
+    <Compile Include="main\WithdrawOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

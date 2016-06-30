@@ -1,23 +1,24 @@
+using Exercice3.BankAccount.main;
+using Exercice3.BankAccountKata;
 using FakeItEasy;
-using NFluent;
 using Xunit;
 
-namespace Exercice3.BankAccountKata
+namespace Exercice3.BankAccount.test
 {
 	public class BankAccountShould
 	{
+		private readonly Operation WITHDRAW_100_OPERATION = new WithdrawOperation(100);
 		private readonly DepositOperation DEPOSIT_100_OPERATION = new DepositOperation(100);
-		
+
 		private readonly IOperationRepository _repository;
-		private BankAccount _account;
-		private Operation WITHDRAW_100_OPERATION = new WithdrawOperation(100);
-		private IPrintService _printService;
+		private readonly main.BankAccount _account;
+		private readonly IPrintService _printService;
 
 		public BankAccountShould()
 		{
 			_repository = A.Fake<IOperationRepository>();
 			_printService = A.Fake<IPrintService>();
-			_account = new BankAccount(_repository, _printService);
+			_account = new main.BankAccount(_repository, _printService);
 		}
 
 		[Fact]
