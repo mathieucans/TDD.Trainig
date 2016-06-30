@@ -11,10 +11,12 @@ namespace Exercice3.BankAccountKata
 		private readonly IOperationRepository _repository;
 		private BankAccount _account;
 		private Operation WITHDRAW_100_OPERATION = new WithdrawOperation(100);
+		private IPrintService _printService;
 
 		public BankAccountShould()
 		{
 			_repository = A.Fake<IOperationRepository>();
+			_printService = A.Fake<IPrintService>();
 			_account = new BankAccount(_repository);
 		}
 
@@ -35,11 +37,17 @@ namespace Exercice3.BankAccountKata
 			A.CallTo(() => _repository.Store(WITHDRAW_100_OPERATION)).MustHaveHappened(Repeated.Exactly.Once);			
 		}
 
+		[Fact]
+		public void print_the_repository_statement()
+		{
+			var buildStatement = new Statement();
+			A.CallTo(() => _repository.BuildStatement()).Returns(buildStatement);
 
-	}
+			_account.PrintStatement();
 
-	public interface IOperationRepository
-	{
-		void Store(Operation debitOperation);
+			A.CallTo(() => _printService.Print(buildStatement)).MustHaveHappened(Repeated.Exactly.Once);
+		}
+
+
 	}
 }

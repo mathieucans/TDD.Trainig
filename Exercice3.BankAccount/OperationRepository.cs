@@ -8,5 +8,10 @@ namespace Exercice3.BankAccountKata
 		{
 			throw new NotImplementedException();
 		}
+
+		public Statement BuildStatement()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
