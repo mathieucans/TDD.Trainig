@@ -6,7 +6,7 @@ namespace Exercice3.BankAccount.main
 	{
 		public void Store(Operation debitOperation)
 		{
-			throw new NotImplementedException();
+			
 		}
 
 		public Statement BuildStatement()

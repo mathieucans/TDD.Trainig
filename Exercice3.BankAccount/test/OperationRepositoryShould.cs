@@ -12,6 +12,7 @@ namespace Exercice3.BankAccount.test
 		{
 			_operationRepository = new OperationRepository();
 		}
+
 		[Fact]
 		public void build_an_empty_statement_when_no_operation_has_been_stored()
 		{
