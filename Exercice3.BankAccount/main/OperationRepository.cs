@@ -11,7 +11,7 @@ namespace Exercice3.BankAccount.main
 
 		public Statement BuildStatement()
 		{
-			throw new NotImplementedException();
+			return new Statement();
 		}
 	}
 }
