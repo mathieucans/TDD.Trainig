@@ -30,7 +30,7 @@ namespace Exercice3.BankAccountKata
 
 	    private BankAccount Create()
 	    {
-			return new BankAccount();
+			return new BankAccount(new OperationRepository());
 	    }
     }
 }

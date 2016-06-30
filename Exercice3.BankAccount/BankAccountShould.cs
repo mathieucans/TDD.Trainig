@@ -12,20 +12,13 @@ namespace Exercice3.BankAccountKata
 		public void store_deposit_transaction_in_the_repository_when_deposit()
 		{
 			var repository = A.Fake<IOperationRepository>();
-			var bankAccount = new BankAccount();
+			var bankAccount = new BankAccount(repository);
 
 			bankAccount.Deposit(100);
 
 			A.CallTo(() => repository.Store(DEBIT_OPERATION)).MustHaveHappened(Repeated.Exactly.Once);
 		}
 
-	}
-
-	public class DepositOperation
-	{
-		public DepositOperation(int amount)
-		{			
-		}
 	}
 
 	public interface IOperationRepository

@@ -61,6 +61,8 @@
     <Compile Include="BanckAccountAcceptanceTest.cs" />
     <Compile Include="BankAccount.cs" />
     <Compile Include="BankAccountShould.cs" />
+    <Compile Include="DepositOperation.cs" />
+    <Compile Include="OperationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
