@@ -1,5 +1,4 @@
 ﻿using System;
-using Exercice3.BankAccountKata;
 
 namespace Exercice3.BankAccount.main
 {

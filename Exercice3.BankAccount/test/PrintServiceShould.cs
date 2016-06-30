@@ -30,7 +30,7 @@ namespace Exercice3.BankAccount.test
 		}
 
 		[Fact]
-		public void should_print_each_Lines()
+		public void should_print_each_Lines_after_header()
 		{
 			var statement = new Statement();
 			statement.AddLine(DateTime.Parse("30/06/2015"), -10.0, 500);
