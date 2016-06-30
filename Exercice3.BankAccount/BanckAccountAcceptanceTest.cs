@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Exercice3.BankAccount.main;
 using Exercice3.BankAccount.test;
+using FakeItEasy;
 using NFluent;
 using Xunit;
 
@@ -33,7 +34,7 @@ namespace Exercice3.BankAccountKata
 
 	    private BankAccount.main.BankAccount Create()
 	    {
-			return new BankAccount.main.BankAccount(new OperationRepository(), new PrintService(new StringPrinterDriverAdapter()));
+			return new BankAccount.main.BankAccount(new OperationRepository(A.Fake<ITimeProvider>()), new PrintService(new StringPrinterDriverAdapter()));
 	    }
     }
 }

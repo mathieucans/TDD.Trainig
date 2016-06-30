@@ -2,12 +2,18 @@ namespace Exercice3.BankAccount.main
 {
 	public abstract class Operation
 	{
-		private int _amount;
+		private readonly int _amount;
 
 		public Operation(int amount)
 		{
 			_amount = amount;
 		}
+
+		public int Amount
+		{
+			get { return _amount; }
+		}
+
 
 		protected bool Equals(Operation other)
 		{
