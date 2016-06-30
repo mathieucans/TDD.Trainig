@@ -26,7 +26,6 @@ namespace Exercice3.BankAccountKata
 				    .AppendLine("10/04/2015|500,00|1400,00")
 				    .AppendLine("02/04/2015|-100,00|900,00")
 				    .AppendLine("01/04/2015|1000,00|1000,00").ToString());
-
 	    }
 
 	    private BankAccount Create()
