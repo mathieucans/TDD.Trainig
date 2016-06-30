@@ -3,13 +3,12 @@ using Xunit;
 
 namespace Exercice1
 {
-    public class NamingConvention
+    public class StackShould
     {
 	    [Fact]
-	    public void naming_should_clarify_behaviours()
+	    public void store_pushed_objects_that_can_be_popped()
 	    {
-		    var myName = "Mathieu";
-		    Check.That(myName).Equals("Mathieu");
 	    }
+
     }
 }
