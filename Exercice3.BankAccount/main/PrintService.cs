@@ -5,8 +5,16 @@ namespace Exercice3.BankAccountKata
 {
 	public class PrintService : IPrintService
 	{
+		private readonly IPrinterDriver _printerDriver;
+
+		public PrintService(IPrinterDriver printerDriver)
+		{
+			_printerDriver = printerDriver;
+		}
+
 		public void Print(Statement statement)
 		{
+			_printerDriver.PrintLine("DATE|AMOUNT|BALANCE");
 		}
 	}
 }

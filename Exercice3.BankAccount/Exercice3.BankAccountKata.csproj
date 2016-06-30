@@ -61,7 +61,8 @@
     <Compile Include="BanckAccountAcceptanceTest.cs" />
     <Compile Include="main\BankAccount.cs" />
     <Compile Include="main\IPrinterDriver.cs" />
-    <Compile Include="main\PrintServiceShould.cs" />
+    <Compile Include="test\PrintServiceShould.cs" />
+    <Compile Include="test\StringPrinterDriverAdapter.cs" />
     <Compile Include="test\BankAccountShould.cs" />
     <Compile Include="main\DepositOperation.cs" />
     <Compile Include="main\IOperationRepository.cs" />
