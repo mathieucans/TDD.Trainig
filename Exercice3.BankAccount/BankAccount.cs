@@ -16,6 +16,7 @@ namespace Exercice3.BankAccountKata
 
 		public void Withdraw(int amount)
 		{			
+			_repository.Store(new WithdrawOperation(amount));
 		}
 
 		public void PrintStatement()
