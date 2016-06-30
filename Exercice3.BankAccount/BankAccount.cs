@@ -3,10 +3,12 @@ namespace Exercice3.BankAccountKata
 	public class BankAccount
 	{
 		private readonly IOperationRepository _repository;
+		private readonly IPrintService _printService;
 
-		public BankAccount(IOperationRepository repository)
+		public BankAccount(IOperationRepository repository, IPrintService printService)
 		{
 			_repository = repository;
+			_printService = printService;
 		}
 
 		public void Deposit(int amount)
@@ -20,7 +22,8 @@ namespace Exercice3.BankAccountKata
 		}
 
 		public void PrintStatement()
-		{			
+		{
+			_printService.Print(_repository.BuildStatement());
 		}
 	}
 }

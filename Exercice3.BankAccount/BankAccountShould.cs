@@ -17,13 +17,12 @@ namespace Exercice3.BankAccountKata
 		{
 			_repository = A.Fake<IOperationRepository>();
 			_printService = A.Fake<IPrintService>();
-			_account = new BankAccount(_repository);
+			_account = new BankAccount(_repository, _printService);
 		}
 
 		[Fact]
 		public void store_deposit_transaction_in_the_repository_when_deposit()
 		{
-			Check.That(DEPOSIT_100_OPERATION).Equals(new DepositOperation(100));
 			_account.Deposit(100);
 
 			A.CallTo(() => _repository.Store(DEPOSIT_100_OPERATION)).MustHaveHappened(Repeated.Exactly.Once);
