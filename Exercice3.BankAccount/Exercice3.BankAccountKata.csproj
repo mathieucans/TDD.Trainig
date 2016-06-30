@@ -62,8 +62,10 @@
     <Compile Include="BankAccount.cs" />
     <Compile Include="BankAccountShould.cs" />
     <Compile Include="DepositOperation.cs" />
+    <Compile Include="Operation.cs" />
     <Compile Include="OperationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WithdrawOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
