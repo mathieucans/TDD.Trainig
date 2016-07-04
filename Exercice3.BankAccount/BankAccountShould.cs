@@ -6,11 +6,11 @@ namespace Exercice3.BankAccountKata
 {
 	public class BankAccountShould
 	{
+		private readonly Operation WITHDRAW_100_OPERATION = new WithdrawOperation(100);
 		private readonly DepositOperation DEPOSIT_100_OPERATION = new DepositOperation(100);
-		
+
 		private readonly IOperationRepository _repository;
 		private BankAccount _account;
-		private Operation WITHDRAW_100_OPERATION = new WithdrawOperation(100);
 		private IPrintService _printService;
 
 		public BankAccountShould()
