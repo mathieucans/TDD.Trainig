@@ -26,5 +26,7 @@ namespace Exercice3.BankAccount.main
 		}
 
 		public abstract int Apply(int balance);
+
+		public abstract void Accept(SignedAmountOperationVisitor visitor);
 	}
 }

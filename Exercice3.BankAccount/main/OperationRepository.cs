@@ -31,10 +31,19 @@ namespace Exercice3.BankAccount.main
 				balance = operation.Value.Apply(balance);
 				buildStatement.AddLine(
 					operation.Key,
-					operation.Value.Amount,
+					ConvertToSignedAmount(operation.Value),
 					balance);
 			}
 			return buildStatement;
+		}
+
+		private double ConvertToSignedAmount(Operation operation)
+		{
+			var visitor = new SignedAmountOperationVisitor();
+
+			operation.Accept(visitor);
+
+			return visitor.SignedAmount;
 		}
 	}
 }

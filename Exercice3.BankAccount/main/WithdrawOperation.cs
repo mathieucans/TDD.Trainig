@@ -1,6 +1,6 @@
 namespace Exercice3.BankAccount.main
 {
-	internal class WithdrawOperation : Operation
+	public class WithdrawOperation : Operation
 	{
 		public WithdrawOperation(int amount) : base(amount)
 		{			
@@ -18,6 +18,11 @@ namespace Exercice3.BankAccount.main
 		public override int Apply(int balance)
 		{
 			return balance - Amount;
+		}
+
+		public override void Accept(SignedAmountOperationVisitor visitor)
+		{
+			visitor.Visit(this);
 		}
 	}
 }

@@ -47,7 +47,7 @@ namespace Exercice3.BankAccount.test
 			var statement = _operationRepository.BuildStatement();
 
 			Check.That(statement.Lines.ElementAt(0)).Equals(new StatementLine(date1, 1000, 1000));
-			Check.That(statement.Lines.ElementAt(1)).Equals(new StatementLine(date2, 100, 900));
+			Check.That(statement.Lines.ElementAt(1)).Equals(new StatementLine(date2, -100, 900));
 		}
 
 		private DateTime StoreAt(Operation depositOperation, string date)

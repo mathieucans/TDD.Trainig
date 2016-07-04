@@ -19,5 +19,10 @@ namespace Exercice3.BankAccount.main
 		{
 			return balance + Amount; 
 		}
+
+		public override void Accept(SignedAmountOperationVisitor visitor)
+		{
+			visitor.Visit(this);
+		}
 	}
 }
