@@ -28,7 +28,7 @@ namespace Exercice3.BankAccount.main
 
 			foreach (var operation in _operationList)
 			{
-				balance = balance + operation.Value.Amount;
+				balance = operation.Value.Apply(balance);
 				buildStatement.AddLine(
 					operation.Key,
 					operation.Value.Amount,

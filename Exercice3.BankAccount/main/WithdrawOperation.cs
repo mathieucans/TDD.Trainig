@@ -14,5 +14,10 @@ namespace Exercice3.BankAccount.main
 			}
 			return base.Equals(obj);
 		}
+
+		public override int Apply(int balance)
+		{
+			return balance - Amount;
+		}
 	}
 }

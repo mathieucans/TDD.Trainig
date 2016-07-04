@@ -24,5 +24,7 @@ namespace Exercice3.BankAccount.main
 		{
 			return _amount;
 		}
+
+		public abstract int Apply(int balance);
 	}
 }

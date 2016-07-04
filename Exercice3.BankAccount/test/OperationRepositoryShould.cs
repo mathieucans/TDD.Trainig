@@ -38,7 +38,19 @@ namespace Exercice3.BankAccount.test
 			Check.That(statement.Lines.ElementAt(1)).Equals(new StatementLine(date2, 100, 200));
 		}
 
-		private DateTime StoreAt(DepositOperation depositOperation, string date)
+		[Fact]
+		public void build_a_statment_with_an_decrement_balance_for_each_withdraw_operation()
+		{
+			var date1 = StoreAt(new DepositOperation(1000), "29/06/2016 15:56");
+			var date2 = StoreAt(new WithdrawOperation(100), "30/06/2016 15:56");
+
+			var statement = _operationRepository.BuildStatement();
+
+			Check.That(statement.Lines.ElementAt(0)).Equals(new StatementLine(date1, 1000, 1000));
+			Check.That(statement.Lines.ElementAt(1)).Equals(new StatementLine(date2, 100, 900));
+		}
+
+		private DateTime StoreAt(Operation depositOperation, string date)
 		{
 			DateTime now = DateTime.Parse(date);
 			A.CallTo(() => _timeProvider.Now).Returns(now);
