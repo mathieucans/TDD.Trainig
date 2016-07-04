@@ -25,17 +25,7 @@ namespace Exercice3.BankAccount.test
 
 			Check.That(statement.Lines.Count()).IsEqualTo(0);
 		}
-
-		[Fact]
-		public void build_a_statement_with_the_current_date_and_the_balance_equals_to_the_amount_when_first_deposit()
-		{
-			var now = StoreAt(new DepositOperation(100),"30/06/2016 15:56");
-
-			var statement = _operationRepository.BuildStatement();
-
-			Check.That(statement.Lines.First()).Equals(new StatementLine(now, 100,100));
-		}
-
+		
 		[Fact]
 		public void build_a_statment_with_an_increment_balance_for_each_deposit_operation()
 		{
@@ -47,8 +37,6 @@ namespace Exercice3.BankAccount.test
 			Check.That(statement.Lines.ElementAt(0)).Equals(new StatementLine(date1, 100, 100));
 			Check.That(statement.Lines.ElementAt(1)).Equals(new StatementLine(date2, 100, 200));
 		}
-
-
 
 		private DateTime StoreAt(DepositOperation depositOperation, string date)
 		{
