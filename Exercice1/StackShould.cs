@@ -6,8 +6,9 @@ namespace Exercice1
     public class StackShould
     {
 	    [Fact]
-	    public void store_pushed_objects_that_can_be_popped()
+	    public void requirement()
 	    {
+			Assert.False(true);
 	    }
 
     }
