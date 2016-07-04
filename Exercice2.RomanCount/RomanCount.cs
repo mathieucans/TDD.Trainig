@@ -10,31 +10,26 @@ namespace Exercice2.RomanCount
 
 			while (arabic > 0)
 			{
-				if (arabic >= 50)
+				var roman = "";
+				int offset = arabic;
+				if (arabic >= 1)
 				{
-					result += "L";
-					arabic -= 50;
-				}
-				if (arabic < 40 && arabic >= 10)
+					roman = "I";
+					offset = 1;
+				}				
+				if (arabic >= 5)
 				{
-					result += "X";
-					arabic -= 10;
+					roman= "V";
+					offset = 5;
 				}
-				if (arabic < 10 && arabic >= 5)
+				if (arabic >= 10 )
 				{
-					result += "V";
-					arabic -= 5;
+					roman= "X";
+					offset = 10;
 				}
-				if (arabic < 5 && arabic >= 4 )
-				{
-					result += "IV";
-					arabic -= 4;
-				}
-				if (arabic < 4 && arabic >= 1)
-				{
-					result += "I";
-					arabic--;
-				}
+
+				result += roman;
+				arabic -= offset;
 			}
 
 			return result;
