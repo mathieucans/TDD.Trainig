@@ -44,7 +44,7 @@ namespace Exercice3.BankAccountKata
 
 	    private BankAccount.main.BankAccount Create()
 	    {
-		    _stringPrinterDriverAdapter = new StringPrinterDriverAdapter();
+		    _stringPrinterDriverAdapter = new StringPrinterDriverAdapter("fr-fr");
 		    _timeProvider = A.Fake<ITimeProvider>();
 		    return new BankAccount.main.BankAccount(
 				new OperationRepository(_timeProvider),

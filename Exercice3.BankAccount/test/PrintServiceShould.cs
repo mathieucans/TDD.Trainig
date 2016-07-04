@@ -15,7 +15,7 @@ namespace Exercice3.BankAccount.test
 
 		public PrintServiceShould()
 		{
-			_printerDriver = new StringPrinterDriverAdapter();
+			_printerDriver = new StringPrinterDriverAdapter("en-us");
 			_printService = new PrintService(_printerDriver);
 		}
 		
@@ -30,7 +30,7 @@ namespace Exercice3.BankAccount.test
 		}
 
 		[Fact]
-		public void should_print_each_Lines_after_header()
+		public void should_print_each_Lines_after_header_in_reverse_chronological_order()
 		{
 			var statement = new Statement();
 			statement.AddLine(DateTime.Parse("30/06/2015"), -10.0, 500);
@@ -41,8 +41,9 @@ namespace Exercice3.BankAccount.test
 			Check.That(_printerDriver.BuildPrintedLines()).Equals(
 				new StringBuilder()
 					.AppendLine(HEADER_LINE)
-					.AppendLine("30/06/2015|-10.00|500.00")
-					.AppendLine("20/06/2015|1000.00|5000.00").ToString());
+					.AppendLine("20/06/2015|1000.00|5000.00")
+					.AppendLine("30/06/2015|-10.00|500.00")					
+					.ToString());
 		}
 	}
 }
